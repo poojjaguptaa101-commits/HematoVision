@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HematoVision: Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .result-section {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #e9ecef;
+        }
+        .result-section h2 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+        .result-section p {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .result-section strong {
+            color: #28a745;
+        }
+        .uploaded-image {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .back-link:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        <div class="result-section">
+            <h2>Predicted Blood Cell Type:</h2>
+            <p><strong>{{ prediction }}</strong></p>
+            {# Changed from image_path to image_data for base64 #}
+            {% if image_data %}
+                <img src="data:image/png;base64,{{ image_data }}" alt="Uploaded Blood Cell" class="uploaded-image">
+            {% endif %}
+        </div>
+        <a href="/" class="back-link">Upload Another Image</a>
+    </div>
+</body>
+</html>
+
